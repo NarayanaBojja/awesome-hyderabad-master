@@ -1,0 +1,77 @@
+header {
+	background-color: white;
+	border: 1px solid gray;
+	border-radius: 5px;
+	margin: 10px 0px 0px 0px;
+}
+
+img {
+	margin: 0px 0px 0px 60px;
+}
+
+
+footer{
+	z-index:10;
+position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: gray;
+ 
+  }
+
+
+
+
+
+th{border:ridge;}
+td{border:ridge;}
+
+body{    background-color: rgb(193, 213, 216);}
+#background{
+    background-color: #d2e4d6;
+}
+
+
+.empty{
+border: 2px dashed #cccccc;
+    border-radius: 0;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    /* margin: 10px; */
+    min-height: 300px;
+    padding: 175px 30px;
+text-align: center;
+}
+
+.scroll{
+	padding-left: 12%;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	  height: 594px
+}
+.page-header{
+	    padding-top: 13px;
+	       margin: -20px 0 -2px;
+		background-color: #9cb9b6;
+}
+.form-horizontal .control-label {
+   
+  
+    text-align: left !important;
+}
+
+.breadcrumb {
+       margin-right: -21%;
+    margin-bottom: 0px !important;
+   
+   
+   
+}
+
+#user_register_form{
+	
+text-align:center;	
+	
+}
