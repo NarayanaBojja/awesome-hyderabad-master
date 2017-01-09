@@ -15,11 +15,9 @@ $(document).ready(function() {
 			"password" : password
 
 		};
-		
-	alert(JSON.stringify(userData));
-	
-		$('#user_submit').prop('disabled', true);	
-		
+
+		$('#user_submit').prop('disabled', true);
+
 		$.ajax({
 			type : 'POST',
 			contentType : 'application/json',
@@ -37,12 +35,61 @@ $(document).ready(function() {
 			}
 
 		});
-		
-		
 
 	});
 
 });
+
+$(document)
+		.ready(
+				function() {
+
+					$("#login_form")
+							.validate(
+									{
+
+										rules : {
+											Username : {
+												required : true,
+												email : true,
+												regex : /^[a-zA-Z0-9]+[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9.]{2,7}$/
+											},
+											Password : {
+												required : true,
+												regex : /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,32}$/
+											}
+
+										},
+
+										messages : {
+											Username : {
+												required : "Please Enter Email",
+												email : "Please enter a valid email address"
+											},
+
+											password : {
+												required : "Please Enter Password",
+												regex : "Please Enter Minimum 6 Characters and atleast One Digit,One Lower case letter,One Upper case letter"
+														
+											}
+
+										},
+										errorPlacement: function(error, element) {
+											  if (element.attr("name") == "Username") {
+												  error.appendTo($(element).parent());
+											  }else{
+											    error.insertAfter(element);
+											  }
+										},
+										success: function (label, element) {
+											label.remove();
+								        }
+										
+										
+
+									});
+
+				});
 
 function successMsgFun(content) {
 	$('.ibox-content #DataTables_Table_0_wrapper .alert-success').remove();
@@ -66,5 +113,3 @@ function failureMsgFun(content) {
 			.append(content);
 	$('.ibox-content #DataTables_Table_0_wrapper').prepend(failureDiv);
 }
-
-

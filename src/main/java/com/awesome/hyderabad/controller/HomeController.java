@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.awesome.hyderabad.common.Constants;
 import com.awesome.hyderabad.model.ResponseData;
 import com.awesome.hyderabad.model.User;
 import com.awesome.hyderabad.service.impl.UserServiceImpl;
 
 /**
- *  This is the Home controller which renders starting
- *         pages of application
+ * This is the Home controller which renders starting pages of application
  *
  */
 
@@ -26,7 +26,14 @@ public class HomeController {
 	private UserServiceImpl userServiceImpl;
 	private static final Logger LOG = Logger.getLogger(HomeController.class);
 
-	@GetMapping("/")
+	@GetMapping(path = { "/", "login" })
+	public ModelAndView loginView() {
+
+		return new ModelAndView("login");
+
+	}
+
+	@GetMapping("/register")
 	public ModelAndView registerView() {
 
 		return new ModelAndView("register");
@@ -40,6 +47,16 @@ public class HomeController {
 
 	}
 
+	@GetMapping("about")
+	public ModelAndView aboutUs() {
+		return new ModelAndView("about");
+	}
+
+	@GetMapping("contact")
+	public ModelAndView contactUs() {
+		return new ModelAndView("contact-us");
+	}
+
 	/**
 	 * This method can handle User add request
 	 * 
@@ -48,7 +65,7 @@ public class HomeController {
 	 * @return ResponseData object
 	 */
 
-	@PostMapping(path="/addUser", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(path = "/addUser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseData addUser(@RequestBody User user) {
 		LOG.info("adding User in HomeController started");
 
@@ -56,6 +73,29 @@ public class HomeController {
 
 		LOG.info("adding User in HomeController ended");
 		return responseData;
+
+	}
+
+	/**
+	 * This method sends mail to the customer
+	 * @param mailDetails
+	 * @return String
+	 */
+	@PostMapping("send-feedbackmail")
+	public String sendFeedBackMail(@RequestBody String mailDetails) {
+
+		try {
+			
+			mailDetails = mailDetails.replace("\"", "");
+			String[] mailInfo = mailDetails.split(Constants.DELEMETER);
+
+			String name = mailInfo[0];
+			
+		} catch (Exception e) {
+			LOG.error("Failed in sending Email to customer ", e);
+		}
+
+		return null;
 
 	}
 
