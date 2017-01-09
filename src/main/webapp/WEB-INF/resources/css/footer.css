@@ -1,8 +1,6 @@
 
  footer{
-	background-color: #24475b; 
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-	box-sizing: border-box;
+	background-color: teal; 
 	width: 100%;
 	text-align: center;
 	padding: 5px 20x 5px 20px;
@@ -10,6 +8,8 @@
 	position:fixed;
     left:0px;
     bottom:0px;
+     font-family: cursive;
+    font-size: 16px;
 }
 
 

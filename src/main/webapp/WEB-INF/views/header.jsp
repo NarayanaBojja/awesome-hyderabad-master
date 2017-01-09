@@ -38,12 +38,12 @@
 	</c:if>
 
 
-	<header class="header">
+	
 		<ul class="nav  navbar-nav">
-			<li id="#"><a href="#"><span> Home </span></a></li>
-			<li id="menu_man"><a href="#"><span>
+			<li id="#" ><a href="#" class="header_list"><span> Home </span></a></li>
+			<li id="menu_man" ><a href="#" class="header_list"><span>
 						Famous Places </span></a></li>
-			<li id="menu_cart" class="hidden-xs"><a href="#"
+			<li id="menu_cart" class="hidden-xs" ><a href="#" class="header_list"
 				onclick="goToViewCart(); return false;"> <span
 					class="glyphicon glyphicon-shopping-cart"> </span> <c:if
 						test="${favoritePlacesCount == null}">
@@ -52,16 +52,16 @@
 						class="badge crtProductCount">${favoritePlacesCount}</span></strong>
 			</a></li>
 			<li id="menu_about" class="hidden-xs hidden-sm hidden-md"><a
-				href="about"><span class="glyphicon glyphicon-info-sign"></span>
+				href="about" class="header_list"><span class="glyphicon glyphicon-info-sign"></span>
 					About</a></li>
 			<li id="menu_contact" class="hidden-xs hidden-sm hidden-md"><a
-				href="contact"><span class="glyphicon glyphicon-phone-alt"></span>
+				href="contact" class="header_list" ><span class="glyphicon glyphicon-phone-alt"></span>
 					Contact</a></li>
 
 			<%
 				if(userName == null || userName.length() == 0){
 			%>
-			<li class="hidden-xs"><a href="login"> <span
+			<li class="hidden-xs"><a href="login" class="header_list"> <span
 					class="glyphicon glyphicon glyphicon-log-in"></span> Log In /
 					SignUp
 			</a></li>
@@ -70,7 +70,7 @@
 				} else {
 			%>
 
-			<li id="menu_profile" class="dropdown hidden-xs"><a href="#"
+			<li id="menu_profile" class="dropdown hidden-xs" ><a href="#" class="header_list"
 				class="dropdown-toggle" data-toggle="dropdown" role="button"
 				aria-haspopup="true" aria-expanded="false">Hi <span
 					id="headerUserName"><%=userName%></span><span class="caret"></span></a>
@@ -86,7 +86,7 @@
 			%>
 
 		</ul>
-	</header>
+	
 
 
 
