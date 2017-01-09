@@ -51,8 +51,8 @@
 				<div class="panel-heading" align="center">
 					<h3>Contact us</h3>
 					<p>
-						Phone : +91 9848022338 <br> Email : <a style="color: #848484"
-							href="mailto:mkonlinestore16@gmail.com?subject=Customer%20Feedback">narayana.bojja143@gmail.com</a>
+						Phone : +91 9848022338 <br> Email : <a style="color: aliceblue"
+							href="mailto:narayana.bojja143@gmail.com?subject=Customer%20Feedback">narayana.bojja143@gmail.com</a>
 					</p>
 
 				</div>
@@ -61,9 +61,11 @@
 					<div id="div_successMessage" class="isa_success"
 						style="display: none">
 						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						<span id="successMessage">${message}</span>
+						<span id="successMessage"
+							style="background-color: darkseagreen; color: beige;">${message}</span>
 					</div>
-					<div id="div_errorMessage" class="isa_error" style="display: none;background-color: antiquewhite;color: brown;">
+					<div id="div_errorMessage" class="isa_error"
+						style="display: none; background-color: antiquewhite; color: brown;">
 						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 						<span id="errorMessage">${message}</span>
 					</div>
@@ -105,7 +107,8 @@
 							<textarea id="feedbackMailMessage" name="feedbackMailMessage"
 								class="form-control common-input-transparent"
 								aria-describedby="icon_feedbackMailMessage"
-								placeholder="Enter Messages*" style="height: 100px; width: 70%" required></textarea>
+								placeholder="Enter Messages*" style="height: 100px; width: 70%"
+								required></textarea>
 						</div>
 
 						<div class="input-group" style="margin-left: 0%">

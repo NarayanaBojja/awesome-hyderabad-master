@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.awesome.hyderabad.common.Constants;
+import com.awesome.hyderabad.common.Mail;
 import com.awesome.hyderabad.model.ResponseData;
 import com.awesome.hyderabad.model.User;
 import com.awesome.hyderabad.service.impl.UserServiceImpl;
@@ -22,9 +23,11 @@ import com.awesome.hyderabad.service.impl.UserServiceImpl;
 @RestController
 public class HomeController {
 
+	private static final Logger LOG = Logger.getLogger(HomeController.class);
 	@Autowired
 	private UserServiceImpl userServiceImpl;
-	private static final Logger LOG = Logger.getLogger(HomeController.class);
+	@Autowired
+	Mail mail;
 
 	@GetMapping(path = { "/", "login" })
 	public ModelAndView loginView() {
@@ -78,24 +81,42 @@ public class HomeController {
 
 	/**
 	 * This method sends mail to the customer
+	 * 
 	 * @param mailDetails
 	 * @return String
 	 */
 	@PostMapping("send-feedbackmail")
 	public String sendFeedBackMail(@RequestBody String mailDetails) {
-
+		LOG.info("Sending Email to customer started");
+		String result = Constants.COMMON_ERROR;
 		try {
-			
+
 			mailDetails = mailDetails.replace("\"", "");
 			String[] mailInfo = mailDetails.split(Constants.DELEMETER);
 
 			String name = mailInfo[0];
-			
+			String email = mailInfo[1];
+			String subject = mailInfo[2];
+			String body = mailInfo[3];
+			String userMailSubject = "RE: " + subject;
+			String userMailbody = "Hi " + name + ", \n\n"
+					+ Constants.MK_FEEDBACK_MAIL_BODY;
+			// Send to customer
+			mail.sendMail(Constants.MK_EMAIL, email, userMailSubject,
+					userMailbody);
+			// Send to our support team
+			mail.sendMail(email, Constants.MK_EMAIL, subject, body.toString());
+
+			result = Constants.FEEDBACK_MAIL_SUCCESS;
+			LOG.info("Sending Email to customer ended");
+
 		} catch (Exception e) {
-			LOG.error("Failed in sending Email to customer ", e);
+			result = Constants.FEEDBACK_MAIL_ERROR;
+			LOG.error("Failed in sending Email to customer in HomeController ",
+					e);
 		}
 
-		return null;
+		return result;
 
 	}
 
