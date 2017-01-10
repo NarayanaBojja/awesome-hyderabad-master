@@ -40,6 +40,8 @@
 
 	
 		<ul class="nav  navbar-nav">
+		
+		<li id="#" ><a href="#" class="header_list"><img src="resources/images/myphoto.jpg" class="img-rounded" alt="Cinque Terre" width="70" height="50" style="margin-top: -8px;"></a></li>
 			<li id="#" ><a href="#" class="header_list"><span> Home </span></a></li>
 			<li id="menu_man" ><a href="#" class="header_list"><span>
 						Famous Places </span></a></li>

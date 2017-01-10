@@ -61,18 +61,18 @@
  						
  					</p>	
 						<br /> Follow me on: 
-						<a 	href="https://www.facebook.com/BojjaNarayana"><img
+						<a 	href="https://www.facebook.com/BojjaNarayana" target="_blank"><img
 							style="width: 30px; height: 30px"
 							src="<%=request.getContextPath()%>/resources/images/facebook.png" /></a>
-						<a href="https://plus.google.com/u/1/114786590460274739658"><img
+						<a href="https://plus.google.com/u/1/114786590460274739658" target="_blank"><img
 							style="width: 30px; height: 30px"
 						src="<%=request.getContextPath()%>/resources/images/google.png" /></a>
-						<a href="https://in.linkedin.com/in/narayanabojja"><img
+						<a href="https://in.linkedin.com/in/narayanabojja" target="_blank"><img
 							style="width: 30px; height: 30px"
 							src="<%=request.getContextPath()%>/resources/images/linked-in.png" /></a>
-<!-- 						<a href="https://github.com/ManeeshDhakad"><img -->
-<!-- 							style="width: 30px; height: 30px" -->
-<%-- 							src="<%=request.getContextPath()%>/resources/images/github.png" /></a> --%>
+						<a href="https://github.com/NarayanaBojja" target="_blank"><img
+							style="width: 35px; height: 35px"
+							src="<%=request.getContextPath()%>/resources/images/github-mark.png" /></a>
 					</div>
   				</div>					
 			</div>
