@@ -3,12 +3,12 @@ form {
 }
 
 input[type=text], input[type=password] {
-	width: 144%;
-	height: 50px;
-	margin: -3px 0;
-	margin-left: -4px;
-	display: list-item;
-	    margin-left: -81px;
+	width: 157%;
+    height: 50px;
+    margin: -4px 0;
+    margin-left: -4px;
+    display: list-item;
+    margin-left: 0px;
 }
 
 button {

@@ -23,36 +23,44 @@
 		<div id="page-wrapper" class="gray-bg">
 			<jsp:include page="header.jsp" />
 			<div class="row wrapper border-bottom white-bg page-heading"></div>
-			<h2
-				style="font-family: monospace; font-size: 25px; font-style: italic; margin-left: 500px; padding-top: 20px; padding-bottom: 35px;">Login
-				Here</h2>
 
-			<form id="login_form" class="form-horizontal" method="post">
+			<img alt="" src="resources/images/hyd.jpg" style="height: 534px;">
+
+			<div style="margin-top: -454px;">
+				<h2
+					style="font-family: monospace; font-size: 25px; font-style: italic; color: aliceblue; margin-left: 500px; padding-top: 20px; padding-bottom: 35px;">Login
+					Here</h2>
+
+				<form id="login_form" class="form-horizontal" method="post">
 
 
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="firstName">User
-						Name</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" id="userName"
-							placeholder="Enter Email">
+					<div class="form-group">
+
+						<div class="col-sm-3">
+							<input type="text" class="form-control" id="userName"
+								placeholder="Enter Email">
+						</div>
 					</div>
-				</div>
 
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="email">Password</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" id="passWord"
-							placeholder="Enter Password">
+					<div class="form-group">
+
+						<div class="col-sm-3">
+							<input type="text" class="form-control" id="passWord"
+								placeholder="Enter Password">
+						</div>
 					</div>
-				</div>
 
-				<button type="submit"
-					style="color: white; font-size: 18px; height: 50px;">Login</button>
-				<div style="padding-top: 15px;"><span>Not yet registered? <a href="register">Register</a></span>
-				</div>
-				
-			</form>
+					<button type="submit"
+						style="color: white; font-size: 18px; height: 50px;">Login</button>
+					<div style="padding-top: 15px;">
+						<span style="font-size: 20px; color: beige;">Not yet
+							registered? <a href="register">Register</a>
+						</span>
+					</div>
+
+				</form>
+			</div>
+
 		</div>
 		<jsp:include page="footer.jsp" />
 	</div>
