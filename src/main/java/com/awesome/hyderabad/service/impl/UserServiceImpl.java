@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
 
 				responseData.setStatus("SUCCESS");
 				responseData
-						.setMessage("You have Registered Successfully");
+						.setMessage("You have Registered Successfully. Please log in with your credentials");
 
 			} else {
 				responseData.setStatus("FAILURE");

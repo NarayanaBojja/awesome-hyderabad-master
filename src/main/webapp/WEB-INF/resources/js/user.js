@@ -8,7 +8,6 @@ $(document).ready(function() {
 		var password = $("#password").val();
 
 		var userData = {
-
 			"firstName" : firstName,
 			"lastName" : lastName,
 			"email" : email,
@@ -27,7 +26,7 @@ $(document).ready(function() {
 			success : function(result) {
 				if (result.status == "SUCCESS") {
 					successMsgFun(result.message);
-					location.href = "home";
+					
 				} else {
 					$('#user_submit').prop('disabled', false);
 					failureMsgFun(result.message);
@@ -70,22 +69,22 @@ $(document)
 											password : {
 												required : "Please Enter Password",
 												regex : "Please Enter Minimum 6 Characters and atleast One Digit,One Lower case letter,One Upper case letter"
-														
+
 											}
 
 										},
-										errorPlacement: function(error, element) {
-											  if (element.attr("name") == "Username") {
-												  error.appendTo($(element).parent());
-											  }else{
-											    error.insertAfter(element);
-											  }
+										errorPlacement : function(error,
+												element) {
+											if (element.attr("name") == "Username") {
+												error.appendTo($(element)
+														.parent());
+											} else {
+												error.insertAfter(element);
+											}
 										},
-										success: function (label, element) {
+										success : function(label, element) {
 											label.remove();
-								        }
-										
-										
+										}
 
 									});
 

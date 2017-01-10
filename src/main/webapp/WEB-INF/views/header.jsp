@@ -63,7 +63,7 @@
 			%>
 			<li class="hidden-xs"><a href="login" class="header_list"> <span
 					class="glyphicon glyphicon glyphicon-log-in"></span> Log In /
-					SignUp
+					Register
 			</a></li>
 
 			<%
