@@ -11,9 +11,15 @@
 	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
 	rel="stylesheet">
 <link href="./resources/css/login.css" rel="stylesheet">
-<script src="./resources/js/jquery.min.js"></script>
+<!-- <script src="./resources/js/jquery.min.js"></script> -->
+
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
 <script src="./resources/js/bootstrap.js"></script>
-<script src="./resources/js/jquery.validate.min.js"></script>
+<!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script> -->
+<!-- <script src="./resources/js/jquery.validate.min.js"></script> -->
 
 <script type="text/javascript" src="./resources/js/user.js"></script>
 
@@ -38,20 +44,24 @@
 
 						<div class="col-sm-3">
 							<input type="text" class="form-control" id="userName"
-								placeholder="Enter Email">
+								name="userName" placeholder="Enter Email">
 						</div>
 					</div>
+					<div class="usernameError"
+						style="color: rgba(255, 0, 0, 0.7); background-color: aliceblue; padding-right: 15px;"></div>
 
 					<div class="form-group">
 
 						<div class="col-sm-3">
-							<input type="text" class="form-control" id="passWord"
-								placeholder="Enter Password">
+							<input type="password" class="form-control" id="passWord"
+								name="passWord" placeholder="Enter Password">
 						</div>
 					</div>
-
+					<div class="passwordError"
+						style="color: rgba(255, 0, 0, 0.7); background-color: aliceblue; padding-right: 15px;"></div>
 					<button type="submit"
 						style="color: white; font-size: 18px; height: 50px;">Login</button>
+						<div class="error_login"></div>
 					<div style="padding-top: 15px;">
 						<span style="font-size: 20px; color: beige;">Not yet
 							registered? <a href="register">Register</a>

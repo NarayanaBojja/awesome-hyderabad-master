@@ -11,7 +11,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/font-awesome.min.css" />
 
-<script src="<%=request.getContextPath()%>/resources/js/jquery.js" /></script>
+<%-- <script src="<%=request.getContextPath()%>/resources/js/jquery.js" /></script> --%>
 </head>
 <body>
 

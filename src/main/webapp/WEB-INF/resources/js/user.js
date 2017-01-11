@@ -1,42 +1,147 @@
+$(document)
+		.ready(
+				function() {
+
+					$('#user_submit')
+							.on(
+									'click',
+									function() {
+
+										if ($('#usersubmit').valid()) {
+											var firstName = $("#firstName")
+													.val();
+											var lastName = $("#lastName").val();
+											var email = $("#email").val();
+											var password = $("#password").val();
+
+											var userData = {
+												"firstName" : firstName,
+												"lastName" : lastName,
+												"email" : email,
+												"password" : password
+
+											};
+
+											$('#usersubmit').prop('disabled',
+													true);
+
+											$
+													.ajax({
+														type : 'POST',
+														contentType : 'application/json',
+														url : 'addUser',
+														data : JSON
+																.stringify(userData),
+
+														success : function(
+																result) {
+															if (result.status == "SUCCESS") {
+																successMsgFun(result.message);
+
+															} else {
+																$(
+																		'#user_submit')
+																		.prop(
+																				'disabled',
+																				false);
+																failureMsgFun(result.message);
+															}
+														}
+
+													});
+										} else {
+											$(".error_login label").text("");
+											return false;
+										}
+
+										
+
+									});
+
+				});
+
+
 $(document).ready(function() {
+	$("#usersubmit")
+	.validate(
+			{
 
-	$('#user_submit').on('click', function() {
+				rules : {
+					firstName : {
+						required : true,
 
-		var firstName = $("#firstName").val();
-		var lastName = $("#lastName").val();
-		var email = $("#email").val();
-		var password = $("#password").val();
+						regex : /^[A-Za-z\s]+$/
+					},
+					lastName : {
+						required : true,
+						regex : /^[A-Za-z\s]+$/
+					},
+					email : {
+						required : true,
+						email : true,
+						regex : /^[a-zA-Z0-9]+[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9.]{2,7}$/
+					},
+					passWord : {
+						required : true,
+						regex : /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,32}$/
+					}
 
-		var userData = {
-			"firstName" : firstName,
-			"lastName" : lastName,
-			"email" : email,
-			"password" : password
+				},
 
-		};
+				messages : {
+					firstName : {
+						required : "Please Enter First Name",
+						email : "Please enter only Alphabets"
+					},
 
-		$('#user_submit').prop('disabled', true);
+					lastName : {
+						required : "Please Enter Last Name",
+						regex : "Please enter only Alphabets"
 
-		$.ajax({
-			type : 'POST',
-			contentType : 'application/json',
-			url : 'addUser',
-			data : JSON.stringify(userData),
+					},
+					email : {
+						required : "Please Enter Email",
+						email : "Please enter a valid email address"
+					},
 
-			success : function(result) {
-				if (result.status == "SUCCESS") {
-					successMsgFun(result.message);
-					
-				} else {
-					$('#user_submit').prop('disabled', false);
-					failureMsgFun(result.message);
+					passWord : {
+						required : "Please Enter Password",
+						regex : "Please Enter Minimum 6 Characters and atleast One Digit,One Lower case letter,One Upper case letter"
+
+					}
+
+				},
+				errorPlacement : function(
+						error,
+						element) {
+					if (element
+							.attr("name") == "firstName") {
+						error
+								.appendTo(".firstNameError");
+					} else if (element
+							.attr("name") === "lastName") {
+						error
+								.appendTo(".lastNameError");
+					} else if (element
+							.attr("name") === "email") {
+						error
+								.appendTo(".emailError");
+					} else if (element
+							.attr("name") === "passWord") {
+						error
+								.appendTo(".passWordError");
+					}
+
+					else {
+						error
+								.insertAfter(element);
+					}
 				}
-			}
 
-		});
-
-	});
-
+			});
+	
+	
+	
 });
 
 $(document)
@@ -48,12 +153,12 @@ $(document)
 									{
 
 										rules : {
-											Username : {
+											userName : {
 												required : true,
 												email : true,
 												regex : /^[a-zA-Z0-9]+[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9.]{2,7}$/
 											},
-											Password : {
+											passWord : {
 												required : true,
 												regex : /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,32}$/
 											}
@@ -61,12 +166,12 @@ $(document)
 										},
 
 										messages : {
-											Username : {
+											userName : {
 												required : "Please Enter Email",
 												email : "Please enter a valid email address"
 											},
 
-											password : {
+											passWord : {
 												required : "Please Enter Password",
 												regex : "Please Enter Minimum 6 Characters and atleast One Digit,One Lower case letter,One Upper case letter"
 
@@ -75,15 +180,17 @@ $(document)
 										},
 										errorPlacement : function(error,
 												element) {
-											if (element.attr("name") == "Username") {
-												error.appendTo($(element)
-														.parent());
-											} else {
+											if (element.attr("name") == "userName") {
+												error
+														.appendTo(".usernameError");
+											} else if (element.attr("name") === "passWord") {
+												error
+														.appendTo(".passwordError");
+											}
+
+											else {
 												error.insertAfter(element);
 											}
-										},
-										success : function(label, element) {
-											label.remove();
 										}
 
 									});
