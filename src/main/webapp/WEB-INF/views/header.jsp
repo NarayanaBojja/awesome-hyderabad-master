@@ -11,7 +11,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/font-awesome.min.css" />
 
-<%-- <script src="<%=request.getContextPath()%>/resources/js/jquery.js" /></script> --%>
+
 </head>
 <body>
 
@@ -78,9 +78,9 @@
 					id="headerUserName"><%=userName%></span><span class="caret"></span></a>
 				<ul id="list" class="dropdown-menu"
 					aria-labelledby="dropdownMenuDivider">
-					<li><a href="user-profile?type=1"><span
+					<li><a href="#"><span
 							class="glyphicon glyphicon-user"></span> Profile</a></li>
-					<li><a href="logout"><span
+					<li><a href="#"><span
 							class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 				</ul></li>
 			<%

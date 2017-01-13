@@ -1,9 +1,7 @@
 package com.awesome.hyderabad.common;
 
-
 /**
- * @author nbojja
- * This class contains only constants for sending responses
+ * @author nbojja This class contains only constants for sending responses
  */
 public class Constants {
 	public static final String DELEMETER = "####@@@@####";
@@ -12,5 +10,10 @@ public class Constants {
 	public static final String FEEDBACK_MAIL_SUCCESS = "<i class=\"fa fa-check\"></i>&nbsp; We have successfully recieved your feedback mail. Please check your email for more details.";
 	public static final String FEEDBACK_MAIL_ERROR = "<i class=\"fa fa-warning\"></i>&nbsp; Could not recieved your feedback mail. Please fill valid email details and try again.";
 	public static final String MK_EMAIL = "narayana.bojja143@gmail.com";
-	
+	public static final String LOGIN_SUCCESS = "<i class=\"fa fa-check\"></i>&nbsp; You are successfully Logged in to your account.";
+
+	public static final String LOGIN_FAIL = "<i class=\"fa fa-warning\"></i>&nbsp; Login fail. Use currect credentials and try again.";
+
+	public static final String LOGIN_FAIL_CK = "<i class=\"fa fa-warning\"></i>&nbsp; Login fail. Something went wrong. Please try again later.";
+
 }

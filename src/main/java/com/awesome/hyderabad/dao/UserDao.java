@@ -26,4 +26,6 @@ public interface UserDao {
 	 */
 	public boolean userExists(String email);	
 	
+	public UserEntity loginUser(UserEntity userEntity);
+	
 }

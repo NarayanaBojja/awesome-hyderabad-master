@@ -1,68 +1,53 @@
-$(document)
-		.ready(
-				function() {
-
-					$('#user_submit')
-							.on(
-									'click',
-									function() {
-
-										if ($('#usersubmit').valid()) {
-											var firstName = $("#firstName")
-													.val();
-											var lastName = $("#lastName").val();
-											var email = $("#email").val();
-											var password = $("#password").val();
-
-											var userData = {
-												"firstName" : firstName,
-												"lastName" : lastName,
-												"email" : email,
-												"password" : password
-
-											};
-
-											$('#usersubmit').prop('disabled',
-													true);
-
-											$
-													.ajax({
-														type : 'POST',
-														contentType : 'application/json',
-														url : 'addUser',
-														data : JSON
-																.stringify(userData),
-
-														success : function(
-																result) {
-															if (result.status == "SUCCESS") {
-																successMsgFun(result.message);
-
-															} else {
-																$(
-																		'#user_submit')
-																		.prop(
-																				'disabled',
-																				false);
-																failureMsgFun(result.message);
-															}
-														}
-
-													});
-										} else {
-											$(".error_login label").text("");
-											return false;
-										}
-
-										
-
-									});
-
-				});
-
-
 $(document).ready(function() {
-	$("#usersubmit")
+
+	$('#user_submit').on('click', function() {
+		
+		/*if($("#usersubmit").validate(e)){
+			 e.preventDefault();*/
+		alert("Hi")
+			var firstName = $("#firstName").val();
+			var lastName = $("#lastName").val();
+			var email = $("#email").val();
+			var password = $("#passWord").val();
+
+			var userData = {
+				"firstName" : firstName,
+				"lastName" : lastName,
+				"email" : email,
+				"password" : password
+
+			};
+
+			alert(JSON.stringify(userData));
+			
+			$('#usersubmit').prop('disabled', true);
+
+			$.ajax({
+				type : 'POST',
+				contentType : 'application/json',
+				url : 'addUser',
+				data : JSON.stringify(userData),
+
+				success : function(result) {
+					if (result.status == "SUCCESS") {
+						successMsgFun(result.message);
+						location.href="login";	
+					} else {
+						$('#user_submit').prop('disabled', false);
+						failureMsgFun(result.message);
+					}
+				}
+
+			});
+
+		/*}else{
+			
+		}*/
+			
+
+	});
+
+	/*$("#usersubmit")
 	.validate(
 			{
 
@@ -111,91 +96,93 @@ $(document).ready(function() {
 					}
 
 				},
-				errorPlacement : function(
-						error,
+				errorPlacement : function(error,
 						element) {
-					if (element
-							.attr("name") == "firstName") {
+					if (element.attr("name") == "firstName") {
 						error
 								.appendTo(".firstNameError");
-					} else if (element
-							.attr("name") === "lastName") {
+					} else if (element.attr("name") === "lastName") {
 						error
 								.appendTo(".lastNameError");
-					} else if (element
-							.attr("name") === "email") {
-						error
-								.appendTo(".emailError");
-					} else if (element
-							.attr("name") === "passWord") {
+					} else if (element.attr("name") === "email") {
+						error.appendTo(".emailError");
+					} else if (element.attr("name") === "passWord") {
 						error
 								.appendTo(".passWordError");
 					}
 
 					else {
+						error.insertAfter(element);
+					}
+				}
+
+			});
+	
+	*/
+	/*$("#login_form")
+	.validate(
+			{
+
+				rules : {
+					userName : {
+						required : true,
+						email : true,
+						regex : /^[a-zA-Z0-9]+[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9.]{2,7}$/
+					},
+					passWord : {
+						required : true,
+						regex : /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,32}$/
+					}
+
+				},
+
+				messages : {
+					userName : {
+						required : "Please Enter Email",
+						email : "Please enter a valid email address"
+					},
+
+					passWord : {
+						required : "Please Enter Password",
+						regex : "Please Enter Minimum 6 Characters and atleast One Digit,One Lower case letter,One Upper case letter"
+
+					}
+
+				},
+				errorPlacement : function(error,
+						element) {
+					if (element.attr("name") == "userName") {
 						error
-								.insertAfter(element);
+								.appendTo(".usernameError");
+					} else if (element.attr("name") === "passWord") {
+						error
+								.appendTo(".passwordError");
+					}
+
+					else {
+						error.insertAfter(element);
 					}
 				}
 
 			});
 	
 	
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 });
 
-$(document)
-		.ready(
-				function() {
-
-					$("#login_form")
-							.validate(
-									{
-
-										rules : {
-											userName : {
-												required : true,
-												email : true,
-												regex : /^[a-zA-Z0-9]+[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9.]{2,7}$/
-											},
-											passWord : {
-												required : true,
-												regex : /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,32}$/
-											}
-
-										},
-
-										messages : {
-											userName : {
-												required : "Please Enter Email",
-												email : "Please enter a valid email address"
-											},
-
-											passWord : {
-												required : "Please Enter Password",
-												regex : "Please Enter Minimum 6 Characters and atleast One Digit,One Lower case letter,One Upper case letter"
-
-											}
-
-										},
-										errorPlacement : function(error,
-												element) {
-											if (element.attr("name") == "userName") {
-												error
-														.appendTo(".usernameError");
-											} else if (element.attr("name") === "passWord") {
-												error
-														.appendTo(".passwordError");
-											}
-
-											else {
-												error.insertAfter(element);
-											}
-										}
-
-									});
-
-				});
 
 function successMsgFun(content) {
 	$('.ibox-content #DataTables_Table_0_wrapper .alert-success').remove();

@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Awesome Hyderabad | Login</title>
 <link rel="icon" type="image/png"
 	href="<%=request.getContextPath()%>/resources/images/logo.jpg">
@@ -21,7 +21,8 @@
 <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script> -->
 <!-- <script src="./resources/js/jquery.validate.min.js"></script> -->
 
-<script type="text/javascript" src="./resources/js/user.js"></script>
+<script src="./resources/js/validation.js"></script>
+<script type="text/javascript" src="./resources/js/login.js"></script>
 
 </head>
 <body>
@@ -30,13 +31,22 @@
 			<jsp:include page="header.jsp" />
 			<div class="row wrapper border-bottom white-bg page-heading"></div>
 
-			<img alt="" src="resources/images/hyd.jpg" style="height: 534px;">
+			<img alt="" src="resources/images/hyd.jpg" style="height: 472px;">
 
 			<div style="margin-top: -454px;">
 				<h2
 					style="font-family: monospace; font-size: 25px; font-style: italic; color: aliceblue; margin-left: 500px; padding-top: 20px; padding-bottom: 35px;">Login
 					Here</h2>
-
+				<div id="div_loginModelSuccessMessage" class="isa_success_modal"
+					style="display: none">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<span id="loginModelSuccessMessage"></span>
+				</div>
+				<div id="div_loginModelErrorMessage" class="isa_error_modal"
+					style="display: none; background-color: ivory; margin-left: 373px; color: brown;">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<span id="loginModelErrorMessage" style="background-color: aliceblue;"></span>
+				</div>
 				<form id="login_form" class="form-horizontal" method="post">
 
 
@@ -60,8 +70,9 @@
 					<div class="passwordError"
 						style="color: rgba(255, 0, 0, 0.7); background-color: aliceblue; padding-right: 15px;"></div>
 					<button type="submit"
-						style="color: white; font-size: 18px; height: 50px;">Login</button>
-						<div class="error_login"></div>
+						style="color: white; font-size: 18px; height: 50px;"
+						onclick="loginUser(); return false;">Login</button>
+					<div class="error_login"></div>
 					<div style="padding-top: 15px;">
 						<span style="font-size: 20px; color: beige;">Not yet
 							registered? <a href="register">Register</a>

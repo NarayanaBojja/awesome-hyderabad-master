@@ -6,6 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -38,7 +39,7 @@ public class HomeController {
 
 	@GetMapping("/register")
 	public ModelAndView registerView() {
-
+System.out.println("Coming1");
 		return new ModelAndView("register");
 
 	}
@@ -60,24 +61,7 @@ public class HomeController {
 		return new ModelAndView("contact-us");
 	}
 
-	/**
-	 * This method can handle User add request
-	 * 
-	 * @param User
-	 *            object
-	 * @return ResponseData object
-	 */
-
-	@PostMapping(path = "/addUser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseData addUser(@RequestBody User user) {
-		LOG.info("adding User in HomeController started");
-
-		ResponseData responseData = userServiceImpl.addUser(user);
-
-		LOG.info("adding User in HomeController ended");
-		return responseData;
-
-	}
+	
 
 	/**
 	 * This method sends mail to the customer

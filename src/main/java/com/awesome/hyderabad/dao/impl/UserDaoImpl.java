@@ -56,8 +56,8 @@ public class UserDaoImpl implements UserDao {
 	@Transactional
 	public boolean userExists(String email) {
 		Optional<UserEntity> user = null;
-		boolean exists =false;
-		
+		boolean exists = false;
+
 		LOG.info("checking UserEntity  by email in database start");
 		try {
 			String queryString = "from UserEntity where email= :email";
@@ -66,10 +66,10 @@ public class UserDaoImpl implements UserDao {
 
 			user = session.createQuery(queryString)
 					.setParameter("email", email).uniqueResultOptional();
-			if(user.isPresent()){
+			if (user.isPresent()) {
 				exists = true;
 			}
-			
+
 			LOG.info("checking UserEntity  by email in database end");
 		} catch (RuntimeException re) {
 			LOG.error("Failed in checking UserEntity  by email in database ",
@@ -78,6 +78,27 @@ public class UserDaoImpl implements UserDao {
 		}
 		return exists;
 
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	@Transactional
+	public UserEntity loginUser(UserEntity userEntity) {
+		LOG.info("checking UserEntity login  in database start");
+		UserEntity user = null;
+		try {
+			String hql = "from UserEntity   where email =:email and password =:password";
+			user = (UserEntity) sessionManager.getCurrentSession()
+					.createQuery(hql)
+					.setParameter("email", userEntity.getEmail())
+					.setParameter("password", userEntity.getPassword())
+					.uniqueResult();
+
+			LOG.info("checking UserEntity login  in database end");
+		} catch (RuntimeException e) {
+			LOG.error("Failed in checking UserEntity login  in database", e);
+		}
+		return user;
 	}
 
 }

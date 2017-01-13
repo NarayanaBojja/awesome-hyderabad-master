@@ -13,17 +13,16 @@ import com.awesome.hyderabad.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
-	
 	@Autowired
 	private UserDaoImpl userDaoImpl;
-	private static final Logger LOG = Logger
-			.getLogger(UserServiceImpl.class);
-	
+	private static final Logger LOG = Logger.getLogger(UserServiceImpl.class);
+
 	/**
-	 * This method saves  User data object into Database
+	 * This method saves User data object into Database
 	 * 
-	 * @param User object
-	 *           
+	 * @param User
+	 *            object
+	 * 
 	 * @return ResponseData
 	 */
 	@Override
@@ -31,7 +30,7 @@ public class UserServiceImpl implements UserService {
 		LOG.info("adding User in UserServiceImpl started");
 		ResponseData responseData = new ResponseData();
 		UserEntity userEntity = new UserEntity();
-		try{
+		try {
 			userEntity.setFirstName(user.getFirstName());
 			userEntity.setLastName(user.getLastName());
 			userEntity.setEmail(user.getEmail());
@@ -47,22 +46,24 @@ public class UserServiceImpl implements UserService {
 
 			} else {
 				responseData.setStatus("FAILURE");
-				responseData
-						.setMessage("User with this Email already existed");
+				responseData.setMessage("User with this Email already existed");
 
 			}
-			
-			
-			
-		}catch (Exception error) {
+
+		} catch (Exception error) {
 			responseData.setStatus("FAILURE");
 			responseData.setMessage("Error in Registering User");
 
-			LOG.error("Failed in adding User in UserDaoImpl",
-					error);
+			LOG.error("Failed in adding User in UserDaoImpl", error);
 		}
-		
-		return responseData;	
+
+		return responseData;
+	}
+
+	@Override
+	public UserEntity loginUser(UserEntity userEntity) {
+
+		return userDaoImpl.loginUser(userEntity);
 	}
 
 }
