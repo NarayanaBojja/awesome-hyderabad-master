@@ -60,7 +60,7 @@ public class UserDaoImpl implements UserDao {
 
 		LOG.info("checking UserEntity  by email in database start");
 		try {
-			String queryString = "from UserEntity where email= :email";
+			String queryString = "from UserEntity where email=:email";
 
 			Session session = sessionManager.getCurrentSession();
 

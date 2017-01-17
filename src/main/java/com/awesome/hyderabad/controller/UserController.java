@@ -41,7 +41,7 @@ public class UserController {
 	@PostMapping(path = "/addUser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseData addUser(@RequestBody User user) {
 		LOG.info("adding User in HomeController started");
-		System.out.println("Coming2");
+		
 		ResponseData responseData = userServiceImpl.addUser(user);
 
 		LOG.info("adding User in HomeController ended");

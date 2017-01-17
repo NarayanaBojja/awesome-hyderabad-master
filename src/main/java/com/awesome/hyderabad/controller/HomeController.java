@@ -39,7 +39,7 @@ public class HomeController {
 
 	@GetMapping("/register")
 	public ModelAndView registerView() {
-System.out.println("Coming1");
+
 		return new ModelAndView("register");
 
 	}
