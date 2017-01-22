@@ -15,5 +15,9 @@ public class Constants {
 	public static final String LOGIN_FAIL = "<i class=\"fa fa-warning\"></i>&nbsp; Login fail. Use currect credentials and try again.";
 
 	public static final String LOGIN_FAIL_CK = "<i class=\"fa fa-warning\"></i>&nbsp; Login fail. Something went wrong. Please try again later.";
+	public static final String MESSAGE_SUCCESS = "SUCCESS";
+	public static final String LOGOUT_SUCCESS = "<i class=\"fa fa-check\"></i>&nbsp; You are successfully Logged out from your account.";
+	public static final String LOGOUT_FAIL = "<i class=\"fa fa-warning\"></i>&nbsp; Logout fail. Something went wrong. Please try again later.";
 
+	
 }

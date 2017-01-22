@@ -80,7 +80,7 @@
 					aria-labelledby="dropdownMenuDivider">
 					<li><a href="#"><span
 							class="glyphicon glyphicon-user"></span> Profile</a></li>
-					<li><a href="#"><span
+					<li><a href="logout"><span
 							class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 				</ul></li>
 			<%

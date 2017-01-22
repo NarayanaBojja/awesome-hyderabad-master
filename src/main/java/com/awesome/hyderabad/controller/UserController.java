@@ -7,9 +7,11 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.awesome.hyderabad.common.Constants;
 import com.awesome.hyderabad.common.SessionManager;
@@ -81,6 +83,28 @@ public class UserController {
 
 		return result;
 
+	}
+	
+	@GetMapping("logout")
+	public ModelAndView logOut(HttpSession session, HttpServletRequest request, HttpServletResponse response){
+		ModelAndView view = new ModelAndView("home");
+		try {
+			if(ssn.removeUserSession(session, request, response)) {
+				view.addObject("messageStatus", Constants.MESSAGE_SUCCESS);
+				view.addObject("message", Constants.LOGOUT_SUCCESS);
+				view.addObject("loginUserSesson", "logout");
+			}
+			else {
+				view.addObject("messageStatus", Constants.MESSAGE_SUCCESS);
+				view.addObject("message", Constants.LOGOUT_FAIL);
+			}
+			
+		} catch (RuntimeException e) {
+			LOG.error("faild in logout", e);
+		}
+		
+		return view;
+		
 	}
 
 }
