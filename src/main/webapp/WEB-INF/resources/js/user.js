@@ -4,7 +4,7 @@ $(document).ready(function() {
 		
 		/*if($("#usersubmit").validate(e)){
 			 e.preventDefault();*/
-		alert("Hi")
+	
 			var firstName = $("#firstName").val();
 			var lastName = $("#lastName").val();
 			var email = $("#email").val();
@@ -18,7 +18,7 @@ $(document).ready(function() {
 
 			};
 
-			alert(JSON.stringify(userData));
+			
 			
 			$('#usersubmit').prop('disabled', true);
 

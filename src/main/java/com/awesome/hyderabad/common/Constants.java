@@ -18,6 +18,10 @@ public class Constants {
 	public static final String MESSAGE_SUCCESS = "SUCCESS";
 	public static final String LOGOUT_SUCCESS = "<i class=\"fa fa-check\"></i>&nbsp; You are successfully Logged out from your account.";
 	public static final String LOGOUT_FAIL = "<i class=\"fa fa-warning\"></i>&nbsp; Logout fail. Something went wrong. Please try again later.";
+	public static final String MESSAGE_ERROR = "ERROR";
+	public static final String SESSION_EXPIRED = "<i class=\"fa fa-warning\"></i>&nbsp; Your session has expired. Please login again";
+	public static final String USER_PERSIONAL_INFO_UPDATE_SUCCESS = "<i class=\"fa fa-check\"></i>&nbsp; Your personal information saved successfully.";
+	public static final String USER_PERSIONAL_INFO_UPDATE_ERROR = "<i class=\"fa fa-warning\"></i>&nbsp; Your personal information not saved. Something went wrong. Please try again later.";
 
 	
 }

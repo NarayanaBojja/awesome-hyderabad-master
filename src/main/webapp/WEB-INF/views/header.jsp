@@ -78,7 +78,7 @@
 					id="headerUserName"><%=userName%></span><span class="caret"></span></a>
 				<ul id="list" class="dropdown-menu"
 					aria-labelledby="dropdownMenuDivider">
-					<li><a href="#"><span
+					<li><a href="userProfile.html"><span
 							class="glyphicon glyphicon-user"></span> Profile</a></li>
 					<li><a href="logout"><span
 							class="glyphicon glyphicon-log-out"></span> Log Out</a></li>

@@ -66,4 +66,23 @@ public class UserServiceImpl implements UserService {
 		return userDaoImpl.loginUser(userEntity);
 	}
 
+	@Override
+	public UserEntity getUserByEmail(String email) {
+
+		return userDaoImpl.getUserByEmail(email);
+	}
+
+	@Override
+	public boolean updateUser(UserEntity userEntity) {
+		boolean result = false;
+		try {
+			userDaoImpl.updateUser(userEntity);
+			result = true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return result;
+
+	}
+
 }

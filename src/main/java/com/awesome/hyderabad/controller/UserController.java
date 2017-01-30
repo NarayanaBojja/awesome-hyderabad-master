@@ -32,6 +32,7 @@ public class UserController {
 	private UserServiceImpl userServiceImpl;
 	@Autowired
 	SessionManager ssn;
+
 	/**
 	 * This method can handle User add request
 	 * 
@@ -43,7 +44,7 @@ public class UserController {
 	@PostMapping(path = "/addUser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseData addUser(@RequestBody User user) {
 		LOG.info("adding User in HomeController started");
-		
+
 		ResponseData responseData = userServiceImpl.addUser(user);
 
 		LOG.info("adding User in HomeController ended");
@@ -59,7 +60,7 @@ public class UserController {
 
 		try {
 			UserEntity userEntity = new UserEntity();
-			
+
 			userInfo = userInfo.replace("\"", "");
 			String[] userDetail = userInfo.split(Constants.DELEMETER, -1);
 			userEntity.setEmail(userDetail[0]);
@@ -84,27 +85,79 @@ public class UserController {
 		return result;
 
 	}
-	
+
 	@GetMapping("logout")
-	public ModelAndView logOut(HttpSession session, HttpServletRequest request, HttpServletResponse response){
+	public ModelAndView logOut(HttpSession session, HttpServletRequest request,
+			HttpServletResponse response) {
 		ModelAndView view = new ModelAndView("home");
 		try {
-			if(ssn.removeUserSession(session, request, response)) {
+			if (ssn.removeUserSession(session, request, response)) {
 				view.addObject("messageStatus", Constants.MESSAGE_SUCCESS);
 				view.addObject("message", Constants.LOGOUT_SUCCESS);
 				view.addObject("loginUserSesson", "logout");
-			}
-			else {
+			} else {
 				view.addObject("messageStatus", Constants.MESSAGE_SUCCESS);
 				view.addObject("message", Constants.LOGOUT_FAIL);
 			}
-			
+
 		} catch (RuntimeException e) {
 			LOG.error("faild in logout", e);
 		}
-		
+
 		return view;
-		
+
+	}
+
+	@GetMapping("userProfile.html")
+	public ModelAndView userProfile(HttpServletRequest request) {
+		ModelAndView view = new ModelAndView("user-profile");
+		try {
+			UserEntity user = ssn.checkUserSession(request);
+			if (user != null) {
+				user = userServiceImpl.getUserByEmail(user.getEmail());
+				view.addObject("user", user);
+
+			} else {
+				view.setViewName("redirect:/home");
+				view.addObject("messageStatus", Constants.MESSAGE_ERROR);
+				view.addObject("message", Constants.SESSION_EXPIRED);
+			}
+		} catch (RuntimeException e) {
+			LOG.error("failed in getting user profile", e);
+		}
+
+		return view;
+
+	}
+
+	@PostMapping("updateUser.html")
+	public String updateUser(HttpSession session, HttpServletRequest request,
+			HttpServletResponse response, @RequestBody String userInfo) {
+		String result = Constants.COMMON_ERROR;
+		try {
+
+			UserEntity user = ssn.checkUserSession(request);
+			if (user != null) {
+				userInfo = userInfo.replace("\"", "");
+				String[] userDetail = userInfo.split(Constants.DELEMETER, -1);
+				user.setFirstName(userDetail[0]);
+				user.setLastName(userDetail[1]);
+				user.setEmail(userDetail[2]);
+				user.setPassword(userDetail[3]);
+
+				if (userServiceImpl.updateUser(user)) {
+					ssn.addUserSession(session, request, response, user);
+					result = Constants.USER_PERSIONAL_INFO_UPDATE_SUCCESS;
+				} else
+					result = Constants.USER_PERSIONAL_INFO_UPDATE_ERROR;
+			}
+
+		} catch (RuntimeException e) {
+			LOG.error("Failed in updating user in User controller", e);
+		}
+
+		return result;
+
 	}
 
 }

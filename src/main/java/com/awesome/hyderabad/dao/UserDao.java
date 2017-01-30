@@ -1,6 +1,7 @@
 package com.awesome.hyderabad.dao;
 
 import com.awesome.hyderabad.model.UserEntity;
+
 /**
  * 
  * It is DAO(Data Access Object) interface which defines all User related
@@ -9,7 +10,7 @@ import com.awesome.hyderabad.model.UserEntity;
  */
 public interface UserDao {
 	/**
-	 * This method saves  User data object into Database
+	 * This method saves User data object into Database
 	 * 
 	 * @param UserEntity
 	 *            object
@@ -24,8 +25,12 @@ public interface UserDao {
 	 * @param email
 	 * @return boolean
 	 */
-	public boolean userExists(String email);	
-	
+	public boolean userExists(String email);
+
 	public UserEntity loginUser(UserEntity userEntity);
+
+	public UserEntity getUserByEmail(String email);
 	
+	public void updateUser(UserEntity userEntity);
+
 }

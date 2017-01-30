@@ -101,4 +101,43 @@ public class UserDaoImpl implements UserDao {
 		return user;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	@Transactional
+	public UserEntity getUserByEmail(String email) {
+		Optional<UserEntity> user = null;
+		UserEntity userEntity = null;
+		LOG.info("getting UserEntity  by email in database start");
+		try {
+			String queryString = "from UserEntity where email=:email";
+
+			Session session = sessionManager.getCurrentSession();
+
+			user = session.createQuery(queryString)
+					.setParameter("email", email).uniqueResultOptional();
+			if (user.isPresent()) {
+				userEntity = user.get();
+			}
+
+			LOG.info("getting UserEntity  by email in database end");
+		} catch (RuntimeException re) {
+			LOG.error("Failed in getting UserEntity  by email in database ", re);
+
+		}
+		return userEntity;
+	}
+
+	@Override
+	@Transactional
+	public void updateUser(UserEntity userEntity) {
+		try {
+			Session session = sessionManager.getCurrentSession();
+			session.update(userEntity);
+
+		} catch (RuntimeException e) {
+			LOG.error("Failed in updating user", e);
+		}
+
+	}
+
 }

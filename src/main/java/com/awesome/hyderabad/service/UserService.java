@@ -25,5 +25,8 @@ public interface UserService {
 	 * @return UserEntity
 	 */
 	public UserEntity loginUser(UserEntity userEntity);
+	
+	public UserEntity getUserByEmail(String email);
+	public boolean updateUser(UserEntity userEntity);
 
 }

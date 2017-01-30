@@ -67,4 +67,29 @@ public class SessionManager {
 		return true;
 
 	}
+
+	public UserEntity checkUserSession(HttpServletRequest request) {
+		Cookie[] cookies = request.getCookies();
+		UserEntity user = null;
+		String userId = "", userName = "", userEmail = "", userPassword = "";
+		for (Cookie ck : cookies) {
+			if (ck.getName().equalsIgnoreCase("userId"))
+				userId = ck.getValue();
+			if (ck.getName().equalsIgnoreCase("userName"))
+				userName = ck.getValue();
+			if (ck.getName().equalsIgnoreCase("userEmail"))
+				userEmail = ck.getValue();
+			if (ck.getName().equalsIgnoreCase("userPassword"))
+				userPassword = ck.getValue();
+		}
+
+		if (!userId.isEmpty()) {
+			user = new UserEntity(Integer.parseInt(userId), userName,
+					userEmail, userPassword);
+		}
+
+		return user;
+
+	}
+
 }
