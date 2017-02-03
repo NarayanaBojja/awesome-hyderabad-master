@@ -62,6 +62,10 @@ public class HomeController {
 	}
 
 	
+	@GetMapping("top-places.html")
+	public ModelAndView topPlaces() {
+		return new ModelAndView("top-places");
+	}
 
 	/**
 	 * This method sends mail to the customer

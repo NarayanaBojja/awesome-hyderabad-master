@@ -43,7 +43,7 @@
 		
 		<li id="#" ><a href="#" class="header_list"><img src="resources/images/myphoto.jpg" class="img-rounded" alt="Cinque Terre" width="70" height="50" style="margin-top: -8px;"></a></li>
 			<li id="#" ><a href="home" class="header_list"><span> Home </span></a></li>
-			<li id="menu_man" ><a href="#" class="header_list"><span>
+			<li id="menu_man" ><a href="top-places.html" class="header_list"><span>
 						Famous Places </span></a></li>
 			<li id="menu_cart" class="hidden-xs" ><a href="#" class="header_list"
 				onclick="goToViewCart(); return false;"> <span
