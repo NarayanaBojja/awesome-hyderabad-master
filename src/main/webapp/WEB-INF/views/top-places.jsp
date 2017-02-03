@@ -107,10 +107,32 @@
 			<td><a href="/hyderabad-archaeology-museum"
 					title="Hyderabad Archaeology Museum"> <img
 						src="./resources/images/places/telangana-state-archaeology-museum-hyderabad.jpg"><p>Hyderabad Museum</p></a></td>
-			<td></td>
-			<td></td>
+			<td><a href="/indira-park-hyderabad"
+					title="Indira Park Hyderabad"> <img src="./resources/images/places/indira-park.jpg"><p>Indira
+							Park</p></a></td>
+			<td><a href="/jagannath-temple-hyderabad"
+					title="Jagannath Temple Hyderabad"> <img
+						src="./resources/images/places/JagannathTemple.jpg"><p>Jagannath Temple</p></a></td>
+			</tr>
+			<tr>
+			<td><a href="/jalvihar-hyderabad" title="Jalvihar Hyderabad">
+						<img src="./resources/images/places/jalvihar-in-hyderabad.jpg"><p>Jalavihar</p>
+				</a></td>
+			<td><a href="/lad-bazar-hyderabad"
+					title="Laad Bazaar Hyderabad"> <img src="./resources/images/places/ladh-bazar.jpg"><p>Laad
+							Bazar</p></a></td>
+			<td><a href="/lumbini-park-hyderabad"
+					title="Lumbini Park Hyderabad"> <img src="./resources/images/places/lumbini-park-hyderabad.jpg"><p>Lumbini
+							Park</p></a></td>
 			</tr>
 
+				<tr>
+				<td><a href="/mecca-masjid-hyderabad"
+					title="Mecca Masjid Hyderabad"> <img src="./resources/images/places/makkah-masjid-in-hyderabad.jpg"><p>Mecca
+							Masjid</p></a></td>
+				<td></td>
+				<td></td>
+				</tr>
 
 		</table>
 
@@ -118,39 +140,12 @@
 
 		<div>
 			<ul>
-
-				<li></li>
-				<li></li>
-				<li></li>
-				<li><a href="/go-karting-shamshabad-airport-hyderabad"
-					title="Go-Karting Shamshabad Airport Hyderabad"> <img
-						class="go-karting"><span>Go-Karting</span></a></li>
-				<li><a href="/hussain-sagar-lake-hyderabad"
-					title="Hussain Sagar Lake Hyderabad"> <img
-						class="hussain-sagar"><span>Hussain Sagar</span></a></li>
-				<li></li>
-				<li><a href="/indira-park-hyderabad"
-					title="Indira Park Hyderabad"> <img class="indira-park"><span>Indira
-							Park</span></a></li>
-				<li><a href="/jagannath-temple-hyderabad"
-					title="Jagannath Temple Hyderabad"> <img
-						class="jagannath-temple"><span>Jagannath Temple</span></a></li>
-				<li><a href="/jalvihar-hyderabad" title="Jalvihar Hyderabad">
-						<img class="jalvihar"><span>Jalavihar</span>
-				</a></li>
-				<li><a href="/lad-bazar-hyderabad"
-					title="Laad Bazaar Hyderabad"> <img class="lad-bazar"><span>Laad
-							Bazar</span></a></li>
 				<!-- <li><a href="/lotus-pond-hyderabad" title="Lotus Pond Hyderabad"> <img class="lotus-pond"/><span>Lotus Pond</span></a></li> -->
-				<li><a href="/lumbini-park-hyderabad"
-					title="Lumbini Park Hyderabad"> <img class="lumbini-park"><span>Lumbini
-							Park</span></a></li>
+				<li></li>
 				<li><a href="/maula-ali-dargah-hyderabad"
 					title="Maula Ali Dargah Hyderabad"> <img class="maula-ali"><span>Maula
 							Ali</span></a></li>
-				<li><a href="/mecca-masjid-hyderabad"
-					title="Mecca Masjid Hyderabad"> <img class="mecca-masjid"><span>Mecca
-							Masjid</span></a></li>
+				<li></li>
 				<li><a href="/mount-opera-theme-park-hyderabad"
 					title="Mount Opera Hyderabad"> <img class="mount-opera"><span>Mount
 							Opera</span></a></li>
