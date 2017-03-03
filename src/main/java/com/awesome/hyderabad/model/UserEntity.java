@@ -39,6 +39,18 @@ public class UserEntity {
 		
 	}
 
+	public UserEntity( String firstName, String lastName,
+			String email, String password) {
+		super();
+		this.lastName = lastName;
+		this.firstName = firstName;
+		
+		this.email = email;
+		this.password = password;
+	}
+	
+	
+
 	public UserEntity(int userId, String firstName, 
 			String email, String password) {
 		super();

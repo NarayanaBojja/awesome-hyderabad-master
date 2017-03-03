@@ -22,6 +22,7 @@
 		for(Cookie ck : cookies) {
 			if(ck.getName().equalsIgnoreCase("userName")) {
 		userName = ck.getValue();
+		System.out.println(userName);
 			}
 		}
 			}
