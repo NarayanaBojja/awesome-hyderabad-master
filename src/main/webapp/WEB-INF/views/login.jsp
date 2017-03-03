@@ -45,7 +45,8 @@
 				<div id="div_loginModelErrorMessage" class="isa_error_modal"
 					style="display: none; background-color: ivory; margin-left: 373px; color: brown;">
 					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-					<span id="loginModelErrorMessage" style="background-color: aliceblue;"></span>
+					<span id="loginModelErrorMessage"
+						style="background-color: aliceblue;"></span>
 				</div>
 				<form id="login_form" class="form-horizontal" method="post">
 
@@ -80,6 +81,18 @@
 					</div>
 
 				</form>
+
+
+
+			</div>
+			<div style="margin-left: 330px; margin-top: 100px;">
+				<span style="font-family: cursive; font-size: 20px;">Or Login
+					with</span> <a href="facebook"><button
+						style="color: white; font-size: 18px; height: 50px; width: 150px; background: #3b5998;">Facebook</button>
+				</a> <a href="#"><button
+						style="color: white; font-size: 18px; height: 50px; width: 150px; background: #c32f10;">Google+</button>
+				</a>
+
 			</div>
 
 		</div>

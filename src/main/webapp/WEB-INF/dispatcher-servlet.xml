@@ -75,5 +75,10 @@
 			</props>
 		</property>
 	</bean>
-
+	<bean id="facebookConnectionFactory"
+		class="org.springframework.social.facebook.connect.FacebookConnectionFactory">
+		<constructor-arg name="appId" value="${spring.social.facebook.appId}"/>
+		<constructor-arg name="appSecret" value="${spring.social.facebook.appSecret}"/>
+		
+	</bean>
 </beans>
