@@ -95,6 +95,13 @@
 
 			</div>
 
+			<div
+				style="margin-left: 372px; padding-top: 25px; padding-bottom: 13px;">
+				<p>
+					<a href="forgot-password">Forgot your password ?</a>
+				</p>
+			</div>
+
 		</div>
 		<jsp:include page="footer.jsp" />
 	</div>

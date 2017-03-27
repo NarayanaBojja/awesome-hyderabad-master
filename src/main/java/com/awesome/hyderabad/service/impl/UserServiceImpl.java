@@ -79,7 +79,7 @@ public class UserServiceImpl implements UserService {
 			userDaoImpl.updateUser(userEntity);
 			result = true;
 		} catch (Exception e) {
-			// TODO: handle exception
+			LOG.error("Failed in updating User in UserDaoImpl", e);
 		}
 		return result;
 

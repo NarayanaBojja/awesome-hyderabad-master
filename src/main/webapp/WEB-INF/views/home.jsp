@@ -9,9 +9,15 @@
 	href="<%=request.getContextPath()%>/resources/images/logo.jpg">
 <script type="text/javascript"
 	src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.1.min.js"></script>
-
+<script type="text/javascript">
+function loadPage (){
+var e=document.getElementById("refreshed");
+if(e.value=="no")e.value="yes";
+else{e.value="no";location.reload();}
+}
+</script>
 </head>
-<body>
+<body onload="loadPage">
 	<jsp:include page="header.jsp"></jsp:include>
 	<img alt="" src="resources/images/hyderabad.png"
 		style="height: 600px; width: 50%;">
@@ -27,7 +33,7 @@ Hyderabad  is the capital of the  Telangana state. Occupying 650 square kilometr
 
 
 </div>
-
+<input type="hidden" id="refreshed" value="no">
 	<jsp:include page="footer.jsp" />
 </body>
 </html>

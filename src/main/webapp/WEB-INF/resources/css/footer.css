@@ -5,9 +5,10 @@
 	text-align: center;
 	padding: 5px 20x 5px 20px;
 	opacity : 0.6;
-	position:fixed;
+	 position:fixed;
+   bottom:0;
     left:0px;
-    bottom:0px;
+   
      font-family: cursive;
     font-size: 16px;
     overflow: hidden

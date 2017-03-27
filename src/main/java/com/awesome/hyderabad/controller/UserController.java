@@ -89,7 +89,7 @@ public class UserController {
 	@GetMapping("logout")
 	public ModelAndView logOut(HttpSession session, HttpServletRequest request,
 			HttpServletResponse response) {
-		ModelAndView view = new ModelAndView("home");
+		ModelAndView view = new ModelAndView("login");
 		try {
 			if (ssn.removeUserSession(session, request, response)) {
 				view.addObject("messageStatus", Constants.MESSAGE_SUCCESS);

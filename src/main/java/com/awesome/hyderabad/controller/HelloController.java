@@ -57,11 +57,11 @@ public class HelloController {
 	}
 
 	@GetMapping("/facebookLogin")
-	public void getUserDetails(
+	public ModelAndView getUserDetails(
 			@RequestParam(name = "code") String authorizationCode,
 			HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) {
-	//	ModelAndView view = new ModelAndView("login");
+		ModelAndView view = new ModelAndView("login");
 		OAuth2Operations oauthOperations = facebookConnectionFactory
 				.getOAuthOperations();
 		AccessGrant accessGrant = oauthOperations.exchangeForAccess(
@@ -86,14 +86,14 @@ public class HelloController {
 		UserEntity UserEntity2 = new UserEntity(firstName, lastName, email,
 				passWord);
 
-		//if (userEntity != null) {
-			if (ssn.addUserSession(session, request, response, UserEntity2));
-			//	view = new ModelAndView("home");
-		/*	else
+		if (userEntity != null) {
+			if (ssn.addUserSession(session, request, response, UserEntity2))
+				view = new ModelAndView("home");
+			else
 				view = new ModelAndView("login");
-		}*/
+		}
 
-	//	return view;
+		return view;
 
 	}
 

@@ -1,8 +1,11 @@
 package com.awesome.hyderabad.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,8 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.awesome.hyderabad.common.Constants;
 import com.awesome.hyderabad.common.Mail;
-import com.awesome.hyderabad.model.ResponseData;
-import com.awesome.hyderabad.model.User;
+import com.awesome.hyderabad.model.UserEntity;
 import com.awesome.hyderabad.service.impl.UserServiceImpl;
 
 /**
@@ -56,12 +58,73 @@ public class HomeController {
 		return new ModelAndView("about");
 	}
 
+	@GetMapping("forgot-password")
+	public ModelAndView forgotPassword() {
+		return new ModelAndView("forgot-password");
+	}
+
+	@SuppressWarnings("unused")
+	@PostMapping("checkUser")
+	public String checkUser(@RequestBody String email,
+			HttpServletResponse response) {
+		String message = "<i class=\"fa fa-warning\"></i>";
+
+		try {
+			UserEntity user = userServiceImpl.getUserByEmail(email);
+
+			if (user != null) {
+
+				message = "<i class=\"fa fa-check\"></i>";
+				Cookie chUserEmail = new Cookie("userEmail", email);
+				chUserEmail.setMaxAge(3600);
+				response.addCookie(chUserEmail);
+
+			}
+		} catch (Exception e) {
+			LOG.error("failed in getting user", e);
+		}
+
+		return message;
+
+	}
+
+	@PostMapping("setPassword")
+	public String setPassword(@RequestBody String password,
+			HttpServletRequest request) {
+		String message = "<i class=\"fa fa-warning\"></i>";
+
+		try {
+			String userEmail = null;
+			for (Cookie ck : request.getCookies()) {
+
+				if (ck.getName().equalsIgnoreCase("userEmail"))
+					userEmail = ck.getValue();
+
+			}
+
+			UserEntity user = userServiceImpl.getUserByEmail(userEmail);
+
+			if (user != null) {
+
+				user.setPassword(password);
+				if (userServiceImpl.updateUser(user)) {
+					message = "<i class=\"fa fa-check\"></i>";
+				}
+
+			}
+		} catch (Exception e) {
+			LOG.error("failed in setting new password", e);
+		}
+
+		return message;
+
+	}
+
 	@GetMapping("contact")
 	public ModelAndView contactUs() {
 		return new ModelAndView("contact-us");
 	}
 
-	
 	@GetMapping("top-places.html")
 	public ModelAndView topPlaces() {
 		return new ModelAndView("top-places");

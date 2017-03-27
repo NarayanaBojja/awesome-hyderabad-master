@@ -15,6 +15,9 @@
 
 <link rel="icon" type="image/png"
 	href="<%=request.getContextPath()%>/resources/images/logo.jpg">
+	<script src="./resources/js/jquery.min.js"></script>
+<script src="./resources/js/bootstrap.js"></script>
+	</head>
 
 <body>
 
@@ -89,12 +92,7 @@
 	
 
 	<!-- JavaScript -->
-	
-	
-<script type="text/javascript"
-		src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
-<script type="text/javascript"
-		src="<%=request.getContextPath()%>/resources/js/bootstrap.js"></script>
+
 <script>
 	$(document).ready(function(){
 		$("#menu_about").addClass("mainmenu-underline");
